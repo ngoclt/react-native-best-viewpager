@@ -51,6 +51,10 @@ export default class PagerTitleIndicator extends Component {
     }
 
     shouldComponentUpdate (nextProps, nextState) {
+        if (this.props.titles + '' != nextProps.titles + '') {
+          this._titleCount = nextProps.titles.length;
+        }
+
         return this.state.selectedIndex != nextState.selectedIndex ||
             this.props.titles + '' != nextProps.titles + '' ||
             this.props.style != nextProps.style ||
@@ -58,9 +62,6 @@ export default class PagerTitleIndicator extends Component {
             this.props.itemTextStyle != nextProps.itemTextStyle ||
             this.props.selectedItemTextStyle != nextProps.selectedItemTextStyle ||
             this.props.selectedBorderStyle != nextProps.selectedBorderStyle
-    }
-    componentWillReceiveProps(nextProps){
-        this._titleCount = nextProps.titles.length;
     }
 
     render () {
