@@ -42,6 +42,7 @@ declare module 'react-native-best-viewpager' {
     interface PageTitleIndicatorProps extends ViewProperties {
       titles: string[];
       trackScroll?: boolean;
+      disabledScroll?: boolean,
       itemStyle?: ViewProperties['style'];
       itemTextStyle?: ViewProperties['style'];
       selectedItemTextStyle?: ViewProperties['style'];

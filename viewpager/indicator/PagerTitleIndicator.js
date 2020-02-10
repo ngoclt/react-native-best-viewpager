@@ -27,6 +27,7 @@ export default class PagerTitleIndicator extends Component {
         selectedItemStyle: ViewPropTypes.style,
         itemTextStyle: Text.propTypes.style,
         trackScroll:PropTypes.bool,
+        disabledScroll: PropTypes.bool,
         selectedItemTextStyle: Text.propTypes.style,
         selectedBorderStyle: ViewPropTypes.style,
         renderTitle: PropTypes.func
@@ -108,6 +109,7 @@ export default class PagerTitleIndicator extends Component {
             <View style={[styles.indicatorContainer, this.props.style]} >
                  <ScrollView
                     scrollEventThrottle={1}
+                    scrollEnabled={!this.props.disabledScroll}
                     onScroll={e => {
                         this._contentHorOffset = e.nativeEvent.contentOffset.x;
                         this._currentMaxHor = screenWidth + this._contentHorOffset;
