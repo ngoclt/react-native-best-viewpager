@@ -48,11 +48,17 @@ export default class IndicatorViewPager extends Component {
         else this._stopAutoPlay()
     }
 
-    componentWillUpdate (nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState) {
         this._childrenCount = React.Children.count(nextProps.children)
         if (this.props.autoPlayEnable !== nextProps.autoPlayEnable) {
             nextProps.autoPlayEnable ? this._startAutoPlay() : this._stopAutoPlay()
         }
+
+        return this.props.indicator + '' !== nextProps.indicator + '' ||
+            this.props.pagerStyle + '' !== nextProps.pagerStyle + '' ||
+            this.props.autoPlayEnable + '' !== nextProps.autoPlayEnable + '' ||
+            this.props.autoPlayInterval + '' !== nextProps.autoPlayInterval + '' ||
+            this.props.horizontalScroll + '' !== nextProps.horizontalScroll + ''
     }
 
     render () {
